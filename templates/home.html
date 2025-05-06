@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block content %}
+<!-- Video Banner Background -->
+<section class="video-banner">
+  <video
+    autoplay
+    muted
+    loop
+    id="background-video">
+    <source
+      src="{{ url_for('static', filename='videos/homepage-banner.mp4') }}"
+      type="video/mp4" />
+  </video>
+  <div class="video-overlay"></div>
+  <div class="banner-content">
+    <h1>Welcome to CodeNest 🪺</h1>
+    <p>Your cozy place to code & grow</p>
+    <a
+      href="{{ url_for('dashboard') }}"
+      class="btn btn-primary"
+      >Start Learning Today</a
+    >
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials container py-5">
+  <h2 class="text-center mb-4">What Our Students Say</h2>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+      <div class="card testimonial-card">
+        <img
+          src="{{ url_for('static', filename='images/smiling-man.jpeg') }}"
+          class="card-img-top" />
+        <div class="card-body">
+          <p>"Great learning experience!"</p>
+          <h5>– James L.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+      <div class="card testimonial-card">
+        <img
+          src="{{ url_for('static', filename='images/biracial.jpeg') }}"
+          class="card-img-top" />
+        <div class="card-body">
+          <p>"Helped me land my first tech job."</p>
+          <h5>– Amina K.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+      <div class="card testimonial-card">
+        <img
+          src="{{ url_for('static', filename='images/blackman.jpeg') }}"
+          class="card-img-top" />
+        <div class="card-body">
+          <p>"Supportive community."</p>
+          <h5>– Michael R.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+      <div class="card testimonial-card">
+        <img
+          src="{{ url_for('static', filename='images/face-indian-woman.png') }}"
+          class="card-img-top" />
+        <div class="card-body">
+          <p>"I felt at home learning here."</p>
+          <h5>– Priya S.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

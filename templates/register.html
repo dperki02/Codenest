@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block title %}Register User{% endblock %} {% block
+content %}
+<div class="d-flex justify-content-center align-items-center mt-4">
+  <div
+    class="card shadow p-4"
+    style="width: 35rem; background-color: rgba(255, 255, 255, 0.9)">
+    <h2 class="text-center mb-4">User Registration</h2>
+
+    <!-- Your registration form -->
+    <form
+      action="/register"
+      method="POST">
+      <input
+        type="text"
+        class="form-control mb-3"
+        name="username"
+        placeholder="Username"
+        required />
+      <input
+        type="password"
+        class="form-control mb-3"
+        name="password"
+        placeholder="Password"
+        required />
+      <input
+        type="text"
+        class="form-control mb-3"
+        name="first_name"
+        placeholder="First Name"
+        required />
+      <input
+        type="text"
+        class="form-control mb-3"
+        name="last_name"
+        placeholder="Last Name"
+        required />
+      <input
+        type="email"
+        class="form-control mb-3"
+        name="email"
+        placeholder="Email"
+        required />
+      <button
+        type="submit"
+        class="btn btn-primary w-100">
+        Register
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

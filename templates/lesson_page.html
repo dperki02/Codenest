@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Lesson - HTML Elements{% endblock %}
+{% block content %}
+<h3>Lesson: HTML Elements</h3>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="nav-item"><a class="nav-link active">Learn</a></li>
+  <li class="nav-item"><a class="nav-link">Challenge</a></li>
+  <li class="nav-item"><a class="nav-link">Solution</a></li>
+</ul>
+
+<div class="tab-content p-3 border">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/dD2EISBDjWM" frameborder="0"></iframe>
+</div>
+
+<div class="mt-4">
+    <h5>Code Snippets</h5>
+    <pre><code>&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+    <button class="btn btn-sm btn-outline-secondary">Copy Code</button>
+</div>
+{% endblock %}

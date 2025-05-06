@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h3>My Workshops</h3>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>HTML & CSS Basics</h5>
+                <p>Progress: 100%</p>
+                <a href="/workshop/1" class="btn btn-success">Continue</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>Your Badges</h3>
+        <img src="https://via.placeholder.com/50" alt="Badge">
+        <img src="https://via.placeholder.com/50" alt="Badge">
+    </div>
+</div>
+{% endblock %}
