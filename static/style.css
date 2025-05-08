@@ -110,6 +110,50 @@ body {
   margin-top: 1rem;
 }
 
+/* Optional Dropdown Styling */
+.dropdown-menu {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: var(--soft-purple);
+  color: var(--white);
+}
+
+.card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+#contact {
+    margin-top: 50px;
+}
+
+.btn-primary, .btn-success, .btn-warning {
+  border-radius: 20px;
+}
+
+.badge {
+  font-size: 0.9em;
+}
+
+
+
 @media (max-width: 768px) {
   .overlay-content {
     width: 90%;

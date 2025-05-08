@@ -1,21 +1,77 @@
-{% extends "base.html" %}
-{% block title %}Dashboard{% endblock %}
-{% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <h3>My Workshops</h3>
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5>HTML & CSS Basics</h5>
-                <p>Progress: 100%</p>
-                <a href="/workshop/1" class="btn btn-success">Continue</a>
-            </div>
-        </div>
+{% extends "base.html" %} {% block title %}Dashboard{% endblock %} {% block
+content %}
+<div class="container py-4">
+  <div class="row align-items-center mb-3">
+    <!-- New Image on Left Side -->
+    <div class="col-md-4 text-center">
+      <img
+        src="{{ url_for('static', filename='images/0009.png') }}"
+        alt="Dashboard Illustration"
+        width="120"
+        class="img-fluid" />
     </div>
+
+    <!-- Greeting and Profile Picture -->
+    <div class="col-md-4 text-center">
+      <h5 class="fw-bold">Hello, {{ username }}</h5>
+      <img
+        src="{{ url_for('static', filename='images/profile-pic.jpg') }}"
+        alt="Profile Picture"
+        width="70"
+        class="rounded-circle shadow-sm" />
+    </div>
+
+    <!-- User Badges -->
+    <div class="col-md-4 text-center">
+      <h6 class="fw-bold">Your Badges</h6>
+      <img
+        src="{{ url_for('static', filename='images/orientation.jpeg') }}"
+        width="50" />
+      <img
+        src="{{ url_for('static', filename='images/react.jpeg') }}"
+        width="50" />
+      <img
+        src="{{ url_for('static', filename='images/ds.jpeg') }}"
+        width="50" />
+    </div>
+  </div>
+
+  <!-- My Workshops -->
+  <h3 class="mb-3">My Workshops</h3>
+  <div class="row">
+    {% for workshop in workshops %}
     <div class="col-md-4">
-        <h3>Your Badges</h3>
-        <img src="https://via.placeholder.com/50" alt="Badge">
-        <img src="https://via.placeholder.com/50" alt="Badge">
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5>{{ workshop.class_name }}</h5>
+          <p>{{ workshop.description }}</p>
+          <p><strong>Progress: {{ workshop.progress_percent }}%</strong></p>
+          <a
+            href="{{ url_for('workshop_detail', user_class_id=workshop.class_id) }}"
+            class="btn btn-primary"
+            >Continue</a
+          >
+
+          >
+        </div>
+      </div>
     </div>
+    {% endfor %}
+  </div>
+
+  <!-- Matplotlib Progress Chart -->
+  {% if progress_chart %}
+  <div class="card shadow-sm my-4">
+    <div class="card-body">
+      <h4>Overall Progress</h4>
+      <img
+        src="{{ progress_chart }}"
+        class="img-fluid"
+        alt="Workshop Progress" />
+    </div>
+  </div>
+  {% else %}
+  <div class="alert alert-info">No workshops data to display yet.</div>
+  {% endif %}
 </div>
 {% endblock %}

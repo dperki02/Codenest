@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Quiz Results{% endblock %} {% block
+content %}
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-info text-white">
+      <h3>Your Results: {{ score }} / {{ total }}</h3>
+    </div>
+    <div class="card-body">
+      {% for result in results %}
+      <div class="border-bottom py-2">
+        <strong>{{ loop.index }}. {{ result.question }}</strong><br />
+        Your Answer: {{ result.user_answer }}<br />
+        Correct Answer: {{ result.correct_option }}<br />
+        {% if result.is_correct %}
+        <span class="badge bg-success">Correct ✅</span>
+        {% else %}
+        <span class="badge bg-danger">Incorrect ❌</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <a
+        href="{{ url_for('dashboard') }}"
+        class="btn btn-primary mt-4"
+        >Back to Dashboard</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

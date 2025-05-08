@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Classes - CodeNest{% endblock %}
+
+{% block content %}
+
+<!-- Workshops Include Section -->
+<div class="container my-5 py-5 text-center">
+    <h2 class="mb-5">Our Online Workshops Include</h2>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">1</span>
+                    <h5 class="card-title">Workshop Preparation</h5>
+                    <p class="card-text">
+                        You will receive all necessary tools to set you up for success, familiarize yourself with our platform, and get ready for your coding journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">2</span>
+                    <h5 class="card-title">Learn & Practice</h5>
+                    <p class="card-text">
+                        Watch online lesson videos and complete interactive challenges at your convenience.
+                    </p>
+                    <small class="text-muted">⏰ <strong>Duration:</strong> Around 5 hours each week</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">3</span>
+                    <h5 class="card-title">Real-time Live Help</h5>
+                    <p class="card-text">
+                        Live technical support available to help answer your questions instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">4</span>
+                    <h5 class="card-title">Homework</h5>
+                    <p class="card-text">
+                        Access our live Slack channel to connect with instructors and fellow students.
+                    </p>
+                    <small class="text-muted">⏰ <strong>Duration:</strong> 1–2 hours per assignment</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Class Listings from Database -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Explore Our Classes</h2>
+    <div class="row">
+        {% for class in classes %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ class.title }}</h5>
+                    <p class="card-text">{{ class.description }}</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Cost:</strong> ${{ class.cost }}</li>
+                        <li class="list-group-item"><strong>Level:</strong> {{ class.level }}</li>
+                        <li class="list-group-item"><strong>Duration:</strong> {{ class.duration }}</li>
+                    </ul>
+                    <div class="mt-auto pt-3">
+                        <a href="#contact" class="btn btn-primary w-100">Learn More & Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Contact Us Section -->
+<div id="contact" class="bg-light py-5">
+    <div class="container text-center">
+        <h3>Interested? Contact Us!</h3>
+        <p>Email: info@codenest.com | Phone: (123) 456-7890</p>
+        <a href="{{ url_for('register') }}" class="btn btn-success">Register Now</a>
+    </div>
+</div>
+
+{% endblock %}
